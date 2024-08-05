@@ -33,7 +33,7 @@ void MyCamera::Update(GLFWwindow* window, float time)
 {
     float cameraSpeed = 2.5f * time;
     glm::vec3 lookAtPoint(0.0f, 0.0f, 0.0f); // Point of interest (0, 0, 0)
-
+          
     //Calculate rotation around the point of interest(lookAtPoint)
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
     {

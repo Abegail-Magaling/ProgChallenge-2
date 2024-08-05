@@ -102,7 +102,7 @@ int main(void)
 
     //PerspectiveCamera
     auto pers_camera = new PerspectiveCamera();
-    pers_camera->setCameraPosition(glm::vec3(0, 0.f, 400.f));
+    pers_camera->setCameraPosition(glm::vec3(0, 0.f, 600.f));
 
     //Initiliaze PhysicsWorld
     auto pWorld = physics::PhysicsWorld(MyVector(0, -50.f, 0));
@@ -122,6 +122,8 @@ int main(void)
     //Default CameraMode
     CameraMode currentCameraMode = CameraMode::Orthographic;
 
+    //float thingy
+    float yPos = -200;
     //Matrices
     glm::mat4 identity_matrix = glm::mat4(1.0f);
     glm::mat4 projection_matrix = glm::mat4(1.f);
@@ -140,7 +142,7 @@ int main(void)
     pWorld.AddParticle(&anchorPoint);
 
     physics::PhysicsParticle p1 = physics::PhysicsParticle();
-    p1.Position = physics::MyVector(40, 0, 0);
+    p1.Position = physics::MyVector(40, yPos, 0);
     p1.mass = 50;
     p1.radius = 5;
     p1.affectedByGravity = false;
@@ -148,7 +150,7 @@ int main(void)
     pWorld.AddParticle(&p1);
 
     physics::PhysicsParticle p2 = physics::PhysicsParticle();
-    p2.Position = physics::MyVector(28, 0, 28);
+    p2.Position = physics::MyVector(28, yPos, 28);
     p2.mass = 50;
     p2.radius = 5;
     p2.affectedByGravity = false;
@@ -156,7 +158,7 @@ int main(void)
     pWorld.AddParticle(&p2);
 
     physics::PhysicsParticle p3 = physics::PhysicsParticle();
-    p3.Position = physics::MyVector(0, 0, 40);
+    p3.Position = physics::MyVector(0, yPos, 40);
     p3.mass = 50;
     p3.radius = 5;
     p3.affectedByGravity = false;
@@ -164,7 +166,7 @@ int main(void)
     pWorld.AddParticle(&p3);
 
     physics::PhysicsParticle p4 = physics::PhysicsParticle();
-    p4.Position = physics::MyVector(-28.f, 0, 28);
+    p4.Position = physics::MyVector(-28.f, yPos, 28);
     p4.mass = 50;
     p4.radius = 5;
     p4.affectedByGravity = false;
@@ -172,7 +174,7 @@ int main(void)
     pWorld.AddParticle(&p4);
 
     physics::PhysicsParticle p5 = physics::PhysicsParticle();
-    p5.Position = physics::MyVector(-40, 0, 0);
+    p5.Position = physics::MyVector(-40, yPos, 0);
     p5.mass = 50;
     p5.radius = 5;
     p5.affectedByGravity = false;
@@ -180,7 +182,7 @@ int main(void)
     pWorld.AddParticle(&p5);
 
     physics::PhysicsParticle p6 = physics::PhysicsParticle();
-    p6.Position = physics::MyVector(-28, 0, -28);
+    p6.Position = physics::MyVector(-28, yPos, -28);
     p6.mass = 50;
     p6.radius = 5;
     p6.affectedByGravity = false;
@@ -188,7 +190,7 @@ int main(void)
     pWorld.AddParticle(&p6);
 
     physics::PhysicsParticle p7 = physics::PhysicsParticle();
-    p7.Position = physics::MyVector(0, 0, -40);
+    p7.Position = physics::MyVector(0, yPos, -40);
     p7.mass = 50;
     p7.radius = 5;
     p7.affectedByGravity = false;
@@ -196,7 +198,7 @@ int main(void)
     pWorld.AddParticle(&p7);
 
     physics::PhysicsParticle p8 = physics::PhysicsParticle();
-    p8.Position = physics::MyVector(28, 0, -28);
+    p8.Position = physics::MyVector(28, yPos, -28);
     p8.mass = 50;
     p8.radius = 5;
     p8.affectedByGravity = false;
@@ -205,49 +207,49 @@ int main(void)
 
     //seats
     physics::PhysicsParticle p1Load = physics::PhysicsParticle();
-    p1Load.Position = physics::MyVector(40, -15, 0);
+    p1Load.Position = physics::MyVector(40, yPos -15, 0);
     p1Load.mass = 60;
     p1Load.radius = 5;
     pWorld.AddParticle(&p1Load);
 
     physics::PhysicsParticle p2Load = physics::PhysicsParticle();
-    p2Load.Position = physics::MyVector(28, -15, 28);
+    p2Load.Position = physics::MyVector(28, yPos -15, 28);
     p2Load.mass = 60;
     p2Load.radius = 5;
     pWorld.AddParticle(&p2Load);
 
     physics::PhysicsParticle p3Load = physics::PhysicsParticle();
-    p3Load.Position = physics::MyVector(0, -15, 40);
+    p3Load.Position = physics::MyVector(0, yPos -15, 40);
     p3Load.mass = 60;
     p3Load.radius = 5;
     pWorld.AddParticle(&p3Load);
 
     physics::PhysicsParticle p4Load = physics::PhysicsParticle();
-    p4Load.Position = physics::MyVector(-28, -15, 28);
+    p4Load.Position = physics::MyVector(-28, yPos -15, 28);
     p4Load.mass = 60;
     p4Load.radius = 5;
     pWorld.AddParticle(&p4Load);
 
     physics::PhysicsParticle p5Load = physics::PhysicsParticle();
-    p5Load.Position = physics::MyVector(-40, -15, 0);
+    p5Load.Position = physics::MyVector(-40, yPos -15, 0);
     p5Load.mass = 60;
     p5Load.radius = 5;
     pWorld.AddParticle(&p5Load);
 
     physics::PhysicsParticle p6Load = physics::PhysicsParticle();
-    p6Load.Position = physics::MyVector(-28, -15, -28);
+    p6Load.Position = physics::MyVector(-28, yPos -15, -28);
     p6Load.mass = 60;
     p6Load.radius = 5;
     pWorld.AddParticle(&p6Load);
 
     physics::PhysicsParticle p7Load = physics::PhysicsParticle();
-    p7Load.Position = physics::MyVector(0, -15, -40);
+    p7Load.Position = physics::MyVector(0, yPos -15, -40);
     p7Load.mass = 60;
     p7Load.radius = 5;
     pWorld.AddParticle(&p7Load);
 
     physics::PhysicsParticle p8Load = physics::PhysicsParticle();
-    p8Load.Position = physics::MyVector(28, -15, -28);
+    p8Load.Position = physics::MyVector(28, yPos -15, -28);
     p8Load.mass = 60;
     p8Load.radius = 5;
     pWorld.AddParticle(&p8Load);
@@ -448,7 +450,7 @@ int main(void)
             }
             if (currentPlayMode == PlayMode::Initiated)
             {
-                if (p1.Position.y <= 40)
+                if (p1.Position.y <= yPos + 40)
                 {
                     // Move the anchors up by 40 meters
                     //anchorPoint.Position.y += 10.f * deltaTime;
@@ -461,16 +463,16 @@ int main(void)
                     p7.Position.y += 40.f * deltaTime;
                     p8.Position.y += 40.f * deltaTime;
                 }
-                else if (p1.Position.y >= 40) 
+                else if (p1.Position.y >= yPos + 40)
                 {
-                    p1.Position.y = 40.f;
-                    p2.Position.y = 40.f;
-                    p3.Position.y = 40.f;
-                    p4.Position.y = 40.f;
-                    p5.Position.y = 40.f;
-                    p6.Position.y = 40.f;
-                    p7.Position.y = 40.f;
-                    p8.Position.y = 40.f;
+                    //p1.Position.y = 40.f;
+                    //p2.Position.y = 40.f;
+                    //p3.Position.y = 40.f;
+                    //p4.Position.y = 40.f;
+                    //p5.Position.y = 40.f;
+                    //p6.Position.y = 40.f;
+                    //p7.Position.y = 40.f;
+                    //p8.Position.y = 40.f;
                     if (rotationSpeed == 0)
                     {
                         rotationSpeed = 45.f;
